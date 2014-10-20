@@ -1,13 +1,13 @@
 #File 
-fname = "5D2-1000hex.gcode"
+fname = "5D1.gcode"
 f = open(fname,"w")
 
 #Laser Parameters
-laserPowers     = [30] #% max power
-dwellTimes      = [1] #ms
-x_start			= 402 - 7*3
+laserPowers     = [10] #% max power
+dwellTimes      = [10] #ms
+x_start			= 402
 y_start			= 343
-z_start         = 110.4 #mm above home
+z_start         = 109.4 #mm above home
 iterations      = 1
 onTime          = 0 #ms
 offTime         = 0 #ms; time between iterations
@@ -15,11 +15,11 @@ pauseTime       = 500 #ms; time paused after movement before ablation
 feedRate        = 500 #movement speed
 
 # Rectangle size properties
-rectLength      = 5 #mm; x-direction
-rectWidth       = 5 #mm; y-direction
+rectLength      = 40 #mm; x-direction
+rectWidth       = 40 #mm; y-direction
 spaceSmall      = 1 #mm; space between rectangles
 spaceLarge      = 1 #mm
-hexLength       = 1 #mm
+hexLength       = 0.25 #mm
 
 #Other
 decimal         = 3 #number of decimal places for gcode

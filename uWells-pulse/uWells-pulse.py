@@ -110,6 +110,9 @@ for laserPower in laserPowers:
 	gcode_move(x_move + x_grid, y_move - rectWidth - spaceSmall)
 	x_grid = 0
 	y_grid += rectWidth + spaceSmall
+
+# Close file
+writefile.closefile()
 	
 	
 	
