@@ -52,6 +52,7 @@ def xy_move(x_move, y_move):
 def z_move(z):
 	f.writelines("G90\n")
 	f.writelines("G0 Z" + str(z) + " F300\n")
+	f.writelines("G4 P250\n")
 	f.writelines("G91\n")
 
 def gcode_line(kvargs):
@@ -67,7 +68,7 @@ def gcode_line(kvargs):
 	line = "G1 B1 X{0} F{1} S{2} L{3} P{4}\n".format(x, speed, laserPower, dwellTime, ppm) 
 	f.writelines(line)
 	
-	xy_move(x, -1*spaceSmall)
+	xy_move(length, -1*spaceSmall)
 	
 
 	
@@ -104,7 +105,7 @@ for i in range(0,len(values1)):
 			kvargs = {orientation[0]:value1, orientation[1]:value2, orientation[2]:value3}
 			gcode_line(kvargs)
 		
-		xy_move(0, spaceLarge-spaceSmall)
+		xy_move(0, spaceSmall - spaceLarge)
 	
 	xy_move(x_dist, y_dist) 
 

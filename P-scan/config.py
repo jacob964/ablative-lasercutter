@@ -8,7 +8,7 @@ FOCUS = 125.25
 laserPowers     = [10, 20, 30] #% max power
 dwellTimes      = [1, 5, 10] #ms
 zValues			= [0, -1, -2]
-x_start        	= 414
+x_start        	= 408
 y_start        	= 344
 pauseTime      	= 500 #ms; time paused after movement before ablation
 feedRate       	= 500 #movement speed
@@ -21,7 +21,7 @@ hexLength      	= 0.5 #mm
 
 
 #Other
-relative       	= 1 #1 for no starting x,y; 0 for using starting co-ordinates
+relative       	= 0 #1 for no starting x,y; 0 for using starting co-ordinates
 
 ## Orientation
 #Note: Enter a combination of 1, 2, and 3
