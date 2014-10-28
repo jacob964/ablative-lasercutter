@@ -1,22 +1,22 @@
 #File
-fname = 'real-test.gcode'
+fname = 'ParamScanC_14-10-28.gcode'
 f=open(fname,'w')
 
 FOCUS = 125.25
 
 #Laser Parameters
-laserPowers     = [10, 20, 30] #% max power
-dwellTimes      = [1, 5, 10] #ms
-zValues			= [0, -1, -2]
-x_start        	= 408
-y_start        	= 344
+laserPowers     = [20,17.5,15,12.5,10] #% max power
+dwellTimes      = [9,7,5,3,1] #ms
+zValues			= [0,0.5,1,1.5,2]
+x_start        	= 414
+y_start        	= 343
 pauseTime      	= 500 #ms; time paused after movement before ablation
 feedRate       	= 500 #movement speed
 
 # Rectangle size properties
-length 			= 5
-spaceSmall     	= 1 #mm; space between rectangles
-spaceLarge		= 2.5
+length 			= 4
+spaceSmall     	= 0.6 #mm; space between rectangles
+spaceLarge		= 1.5
 hexLength      	= 0.5 #mm
 
 
@@ -30,4 +30,4 @@ relative       	= 0 #1 for no starting x,y; 0 for using starting co-ordinates
 #1 = Laser power
 #2 = Dwell Time
 #3 = z Values
-orientation = '213'
+orientation = "213"

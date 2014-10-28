@@ -23,7 +23,7 @@ f = config.f
 #Laser Parameters
 laserPowers 	= config.laserPowers
 dwellTimes      = config.dwellTimes
-zValues 		= [z+FOCUS for z in config.zValues]
+zValues 		= [FOCUS-z for z in config.zValues]
 x_start			= config.x_start
 y_start			= config.y_start
 pauseTime 		= config.pauseTime
@@ -46,7 +46,7 @@ params = {'1':laserPowers, '2':dwellTimes, '3':zValues}
 
 def xy_move(x_move, y_move):
 	f.writelines("M3 S0\n")
-	f.writelines("G0 X" + str(x_move) + " Y" + str(y_move) + " F2000\n")
+	f.writelines("G0 X" + str(x_move) + " Y" + str(y_move) + " F500\n")
 	f.writelines("G4 P" + str(pauseTime) + "\n")
 	
 def z_move(z):
