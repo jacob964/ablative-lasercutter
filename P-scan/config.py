@@ -1,12 +1,12 @@
 #File
-fname = 'ParamScanC_14-10-28.gcode'
+fname = 'test-312orientation.gcode'
 f=open(fname,'w')
 
-FOCUS = 125.25
+FOCUS = 123.85
 
 #Laser Parameters
-laserPowers     = [20,17.5,15,12.5,10] #% max power
-dwellTimes      = [9,7,5,3,1] #ms
+laserPowers     = [10,10,10,10,10] #% max power
+dwellTimes      = [7,7,7,7,7] #ms
 zValues			= [0,0.5,1,1.5,2]
 x_start        	= 414
 y_start        	= 343
@@ -15,8 +15,8 @@ feedRate       	= 500 #movement speed
 
 # Rectangle size properties
 length 			= 4
-spaceSmall     	= 0.6 #mm; space between rectangles
-spaceLarge		= 1.5
+spaceSmall     	= 1 #mm; space between rectangles
+spaceLarge		= 2
 hexLength      	= 0.5 #mm
 
 
@@ -30,4 +30,4 @@ relative       	= 0 #1 for no starting x,y; 0 for using starting co-ordinates
 #1 = Laser power
 #2 = Dwell Time
 #3 = z Values
-orientation = "213"
+orientation = "312"
