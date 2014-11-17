@@ -13,8 +13,10 @@ import writefile
 
 #Polygon Parameters
 nSides          = config.nSides         # Number of sides to polygon
+theta			= config.theta			# angle to rotate ngon in radians
 nAngle          = 2*math.pi / nSides    # Angle for each side of polygon
 radius          = config.radius         # Radius of polygon
+
 
 #Laser Parameters
 feedRate		= config.feedRate       # mm/s
@@ -54,18 +56,18 @@ def hex_pattern(r_hex):
 
 def draw_circle(x_center, y_center):
     ## Move to first position ##
-    x = x_center + radius * math.cos(nAngle)
-    y = y_center + radius * math.sin(nAngle)
+    x = x_center + radius * math.cos(theta)
+    y = y_center + radius * math.sin(theta)
     move_position(x,y)
 
 
     ## Turn on Laser ##
-    f.writelines("M649 S" + str(laserPower) + " \n")
+    f.writelines("M649 S" + str(laserPower) + " B0\n")
 
     ## Iterate through other points, drawing lines ##
-    for i in range(2,nSides+2):
-        x = x_center + radius * math.cos(i*nAngle)
-        y = y_center + radius * math.sin(i*nAngle)
+    for i in range(1,nSides+1):
+        x = x_center + radius * math.cos(i*nAngle+theta)
+        y = y_center + radius * math.sin(i*nAngle+theta)
         draw_line(x,y)
 
     ## Turn off Laser ##
@@ -90,14 +92,22 @@ writefile.openGcode()
 
 # Home z-axis
 f.writelines("M3 S0\n")
-f.writelines("G28\n")
+#f.writelines("G28\n")
 f.writelines("G0 X" + str(x_start) + " Y" + str(y_start) + " F2000\n")
 f.writelines("G0 Z" + str(z_start) + " F300\n")
 
-# Draw circles hexagonally packed
+# Draw circles 
 draw_circle(x_start,y_start)
 
-draw_circle(x_start, y_start - 17)
+#draw_circle(x_start-2*radius-0.5, y_start)
+
+#draw_circle(x_start-4*radius-0.5, y_start)
+
+#draw_circle(x_start,y_start-0.5-2*radius)
+
+#draw_circle(x_start-2*radius-0.5, y_start-0.5-2*radius)
+
+#draw_circle(x_start-4*radius-0.5, y_start-0.5-2*radius)
 
 # draw_circle(x_start - r_hex, y_start - r_hex)
 
