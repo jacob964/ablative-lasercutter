@@ -1,20 +1,20 @@
 import math
 
 #File 
-fname = "test-rotated_square.gcode"
+fname = "12-well_4.gcode"
 f = open(fname,"w")
 
 #Polygon Parameters
-nSides      = 4   # Number of sides to polygon
-radius      = 10   # Radius of polygon
-theta		= math.pi / 4.0
+nSides      = 500   # Number of sides to polygon
+radius      = 11   # Radius of polygon
+theta		= 0
 
 #Laser Parameters
 feedRate    = 250   # mm/s
-laserPower  = 13    # percent max power
+laserPower  = 14    # percent max power
 pauseTime   = 500   # ms
-x_start 	= 416-radius   # mm
-y_start		= 341-radius	# mm
+x_start 	= 421-radius-0.5  # mm
+y_start		= 348-radius-0.5	# mm
 z_start     = 124.1 # mm
 
 #Other
