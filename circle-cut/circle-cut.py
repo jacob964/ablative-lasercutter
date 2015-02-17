@@ -99,15 +99,19 @@ f.writelines("G0 Z" + str(z_start) + " F300\n")
 # Draw circles 
 draw_circle(x_start,y_start)
 
-draw_circle(x_start-2*radius-0.5, y_start)
+#draw_circle(x_start-2*radius-0.5, y_start)
 
-draw_circle(x_start, y_start-0.5-2*radius)
+# draw_circle(x_start-4*radius-0.5, y_start)
 
-draw_circle(x_start-2*radius-0.5,y_start-0.5-2*radius)
+# draw_circle(x_start-6*radius-0.5, y_start)
 
-#draw_circle(x_start-2*radius-0.5, y_start-0.5-2*radius)
+# draw_circle(x_start,y_start-2*radius-0.5)
 
-#draw_circle(x_start-4*radius-0.5, y_start-0.5-2*radius)
+# draw_circle(x_start-2*radius-0.5, y_start-2*radius-0.5)
+
+# draw_circle(x_start-4*radius-0.5, y_start-2*radius-0.5)
+
+# draw_circle(x_start-6*radius-0.5, y_start-2*radius-0.5)
 
 # draw_circle(x_start - r_hex, y_start - r_hex)
 
