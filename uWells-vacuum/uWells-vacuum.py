@@ -28,9 +28,10 @@ hex_pack	= config.hexLength
 
 # Other Parameters
 #relative   	= config.relative
-y_brush_top = 350
-y_brush_dist = 10
-x_brush = 350
+y_brush_top = 335
+y_brush_dist = 80
+x_brush = 232
+cleanTrigger = 15
 
 x_current = x_start
 y_current = y_start
@@ -79,11 +80,14 @@ def cleanLaserHead():
 	f.writelines("M3 S0\n")
 	
 	f.writelines("G90\n")
-	f.writelines("G0 X" + str(x_start) + " Y" + str(y_start) + " F1000\n")
 	f.writelines("G0 X" + str(x_brush) + " Y" + str(y_brush_top) + " F1000\n")
+	f.writelines("G4 P250\n")
 	f.writelines("G0 Y" + str(y_brush_top - y_brush_dist) + " F1000\n")
+	f.writelines("G4 P250\n")
 	f.writelines("G0 Y" + str(y_brush_top) + " F1000\n")
+	f.writelines("G4 P250\n")
 	f.writelines("G0 X" + str(x_initial) + " Y" + str(y_initial) + " F1000\n")
+	f.writelines("G4 P500\n")
 	f.writelines("G91\n")
 	
 	f.writelines(";; Done Cleaning\n\n")
@@ -101,8 +105,12 @@ def gcode_rectangle(dwellTime, laserPower, conditions):
 	while y_total < rectWidth:
 		f.writelines("G1 X" + str(-1*rectLength) + " S" + str(laserPower) + " L" + str(dwellTime*1000) + " P" + str(pulseDist) + " F" + str(feedRate) + " B1\n") 
 		currentX(-1*rectLength)
-		#f.writelines("M3 S0\n")
 		x_total -= rectLength
+		
+		cleanCount += 1
+		if cleanCount == cleanTrigger:
+			cleanCount = 0 
+			cleanLaserHead()
 		
 		x_overhang = flag * x_dist/2
 		gcode_move(rectLength + x_overhang, -1*y_dist)
@@ -111,8 +119,6 @@ def gcode_rectangle(dwellTime, laserPower, conditions):
 		y_total += y_dist
 		flag *= -1
 		
-		cleanCount += 1
-		if cleanCount == 10: cleanCount = 0 and cleanLaserHead()
 	totals = [x_total, y_total]
 	return totals
 	
