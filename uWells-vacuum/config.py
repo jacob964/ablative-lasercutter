@@ -8,8 +8,8 @@ FOCUS = 124.1
 laserPower     = [10] #% max power
 dwellTime      = [5] #ms
 zValue		   = [1.5] #mm below focus
-x_start        = 417
-y_start        = 333
+x_start        = 414
+y_start        = 340
 pauseTime      = 500 #ms; time paused after movement before ablation
 feedRate       = 500 #movement speed
 
